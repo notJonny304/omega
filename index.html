@@ -1,0 +1,341 @@
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="omegaStyle.css">
+      <title>Omega</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" href="/omegaFavicon.png" type="image/png">
+  </head>
+  <body>
+<div id="bg-wrapper"></div>
+      <div class="cursor-dot"></div>
+      <div class="cursor-outline"></div>
+
+
+  <h1>Welcome, </h1>
+    <p>OMEGA PROXY!!! A WIP proxy server by notJonny + theGenius9! More features coming soon!! :D</p>
+    <h2>Made by: notJonny and theGenius9</h2>
+    <div class="iconContainer"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 32 32" id="omegaIcon">
+    <defs>
+        <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1A4F7A;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#2C7AB3;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    
+    <rect width="32" height="32" rx="6" fill="url(#blueGradient)"/>
+    
+    <path 
+        d="M10 16 Q16 22, 22 16" 
+        fill="none" 
+        stroke="white" 
+        stroke-width="3"
+    />
+    
+    <text 
+        x="16" 
+        y="22" 
+        text-anchor="middle" 
+        font-family="Arial, sans-serif" 
+        font-size="18" 
+        font-weight="bold" 
+        fill="white"
+    >
+        Ω
+    </text>
+      </svg></div>
+    <small>Version: Omega 3.3.2</small>
+
+  <div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'Lobby')">Lobby/Chillzone</button>
+    <button class="tablinks" onclick="openCity(event, 'Search')">Quantum Search</button>
+<button class="tablinks" onclick="openCity(event, 'quantumAI')">Quantum AI (WIP)</button>
+    <button class="tablinks" onclick="openCity(event, 'gameHub')">Quantum Game Hub</button>
+    <button class="tablinks" onclick="openCity(event, 'Settings')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          Settings
+      </button>
+    <button class="tablinks" id="creditsButton" onclick="openCity(event, 'Credits')"><span style="font-size:23px">©</span>Credits</button>
+      <button class="tablinks" onclick="openCity(event, 'DevTools')">🛠️ Dev Tools</button>
+  </div>
+    <div id="Lobby" class="tabcontent">
+<div class="chillzone-container">
+<h2>Chillzone Chat</h2>
+
+    <!-- The Chat Display Window -->
+    <div id="chillzoneChatLog" class="chat-log">
+      <div class="msg-system">{<strong>System: </strong>Welcome to the Chillzone Chat!}</div>
+    </div>
+    
+    <!-- Input Area -->
+    <div class="chat-controls">
+        <input type="text" id="chillzoneNameInput" placeholder="username..." class="chat-input-small">
+        <input type="text" id="chillzoneMessageInput" placeholder="Enter message..." class="chat-input-main">
+        <button onclick="sendChillzoneMessage()" class="chat-send-btn">SEND</button>
+    </div>
+</div>
+</div>
+<div id="Search" class="tabcontent">
+    <div class="quantum-search-header">
+        <h3>QUANTUM SEARCH INTERFACE</h3>
+        <div class="quantum-status-indicator">
+            <span class="status-dot" id="quantumStatusDot"></span>
+            <span class="status-text" id="quantumStatusText">QUANTUM NETWORK: STANDBY</span>
+        </div>
+    </div>
+    <div class="search-container" style="display: flex; align-items: center; gap: 10px;">
+        <div class="search-input-wrapper" style="flex-grow: 1; position: relative;">
+            <input 
+                type="text" 
+                id="quantum-search-input" 
+                placeholder="ENTER QUANTUM QUERY" 
+                class="bio-input"
+                style="padding-right: 50px;"
+                oninput="updateQuantumFrequency()"
+            >
+            <div class="bio-scan-overlay" id="scanOverlay"></div>
+            <div class="quantum-frequency-meter">
+                <div id="frequencyBar" class="frequency-bar"></div>
+            </div>
+            <button 
+                onclick="performQuantumSearch()" 
+                class="quantum-scan-btn"
+            >
+                ⚡ QUANTUM SCAN
+            </button>
+        </div>
+    </div>
+    
+    <div id="quantum-search-results" class="quantum-results-container">
+        <div class="quantum-results-grid">
+            <div class="quantum-result-card quantum-loading">
+                <div class="quantum-card-content">
+                    <h4>INITIALIZING QUANTUM SEARCH</h4>
+                    <p>Entangling search probabilities...</p>
+                    <div class="quantum-loader"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <div id="quantumAI" class="tabcontent">
+    <div class="ai-container">
+        <div class="ai-header">
+          <h1>Quantum AI - Work in progress!!</h1>
+            <div class="ai-status">
+                <div class="status-dot"></div>
+                <span>AI System Status: ONLINE</span>
+            </div>
+        </div>
+        
+        <div class="chat-interface">
+            <div id="aiChatLog" class="ai-chat-log">
+            </div>
+            
+            <div class="input-area">
+                <input 
+                    type="text" 
+                    id="userInput" 
+                    placeholder="Enter your query or request..."
+                    class="ai-input"
+                >
+                <button onclick="sendMessage()" class="send-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <div class="ai-capabilities">
+            <h4>AI Capabilities (totally)</h4>
+            <div class="capability-grid">
+                <div class="capability-item">💡 Information Retrieval</div>
+                <div class="capability-item">🧮 Complex Calculations</div>
+                <div class="capability-item">📝 Text Generation</div>
+                <div class="capability-item">🌐 Web Search</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  <!-- Settings Panel -->
+  <div id="Settings" class="tabcontent">
+      <h3>System Configuration</h3>
+      <div class="settings-grid">
+          <div class="setting-group">
+              <h4>Background</h4>
+              <button onclick="changeBg('default')">Default</button>
+           
+              <button onclick="changeBg('matrix')">Matrix Rain</button>
+              <button onclick="changeBg('grid')">Grid</button>
+              <button onclick="changeBg('scifi')">Sci-Fi</button>
+          </div>
+          <div class="setting-group">
+              <h4>Theme</h4>
+              <button onclick="changeTheme('neon-cyber')">Neon Cyber</button>
+              <button onclick="changeTheme('retro-terminal')">Retro</button>
+              <button onclick="changeTheme('dark-void')">Dark Void</button>
+                  <button onclick="changeTheme('party')">Party</button>  <!-- New button -->
+
+                          <button onclick="changeTheme('blood-protocol')">Blood Protocol</button>
+
+          </div>
+        <div class="setting-group">
+    <h4>Network</h4>
+    <button onclick="toggleOfflineMode()">Offline Mode</button>
+    <button onclick="checkNetworkStatus()">Network Status</button>
+</div>
+        <div class="setting-group" id="selectLang">
+    <h4>Language (Doesn't work for some parts)</h4>
+    <select id="selectLang" onchange="changeLanguage(this.value)">
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+    </select>
+</div>
+        <div class="setting-group">
+    <h4>Advanced System</h4>
+    <button onclick="openSystemLogs()">System Logs</button>
+    <button onclick="resetToDefaults()">Reset to Defaults</button>
+    <button onclick="systemDiagnostics()">Run Diagnostics</button>
+</div>
+          <div class="setting-group">
+      <h4>Cursor Style</h4>
+      <button onclick="changeCursor('default')">Default Neon</button>
+      <button onclick="changeCursor('particle')">Particle Cursor</button>
+      <button onclick="changeCursor('blood')">Blood Protocol</button>
+      <button onclick="changeCursor('minimalist')">Minimalist</button>
+  </div>
+      <div class="setting-group">
+    <h4>🔐 USER IDENTITY PROTOCOL</h4>
+    <div class="bio-input-container">
+        <input 
+            type="text" 
+            id="nameInput" 
+            placeholder="ENTER DESIGNATION CODE" 
+            class="bio-input"
+        >
+        <div class="bio-scan-overlay"></div>
+    </div>
+    <div class="identity-controls">
+        <button onclick="saveName()" class="bio-save-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                <polyline points="7 3 7 8 15 8"></polyline>
+            </svg>
+            ENCODE
+        </button>
+        <button onclick="clearName()" class="bio-clear-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            RESET
+        </button>
+    </div>
+    <div id="savedNameDisplay" class="identity-readout">
+        <span class="system-label">CURRENT DESIGNATION:</span>
+        <span class="system-value">N/A</span>
+    </div>
+        
+</div>
+        <div class="setting-group">
+    <h4>Panic Key Settings</h4>
+    <input type="text" id="panicKeyInput" placeholder="Enter key (e.g. 'Enter', 'Escape')" />
+    <button onclick="savePanicKey()">Save Panic Key</button>
+    <p id="currentPanicKeyDisplay">Current Panic Key: Not Set</p>
+</div>
+        <div class="setting-group">
+    <h4>AI Personality</h4>
+    <button onclick="changeAIPersonality('default')">Default AI</button>
+    <button onclick="changeAIPersonality('hacker')">Hacker Mode</button>
+    <button onclick="changeAIPersonality('scientific')">Research Mode</button>
+</div>
+          <div class="setting-group">
+              <h4>Tab Cloak (Coming in Omega 4.1.0! -theGenius9)</h4>
+              <button onclick="tabCloak()">Set up your tab cloak here!</button>
+          </div>
+      </div>
+  </div>
+    <div id="Credits" class="tabcontent">
+      <h1>CREDITS</h1>
+      <h3>Quantum Search and Settings by notJonny</h3>
+      <h3>Credits, Quantum AI, and Quantum Game Hub by theGenius9</h3>
+        <h3>Chillzone Chat by notJonny + theGenius9</h3>
+  </div>
+    <div class="tabcontent" id="gameHub"><h1>Quantum Game Hub is still a work in progress feature, coming in Omega 4.0.0!</h1></div>
+    <button 
+        id="panicButton" 
+        style="
+            position: fixed; 
+            bottom: 20px; 
+            right: 20px; 
+            z-index: 1000;
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+               border-radius: 10px;
+        "
+    >
+        PANIC
+    </button>
+          <div id="DevTools" class="tabcontent">
+    <h2>Developer Tools</h2>
+    
+    <div class="settings-grid">
+        <div class="setting-group">
+            <h4>Console</h4>
+            <textarea id="devConsoleOutput" rows="10" readonly style="width: 100%; background: #000; color: #0f0; font-family: monospace;"></textarea>
+            <div class="console-input">
+                <input type="text" id="devConsoleInput" placeholder="Enter JavaScript command">
+                <button onclick="executeDevCommand()">Execute</button>
+            </div>
+        </div>
+        
+        <div class="setting-group">
+            <h4>System Information</h4>
+            <div id="systemInfo">
+                <p><strong>User Agent:</strong> <span id="userAgentInfo"></span></p>
+                <p><strong>Browser:</strong> <span id="browserInfo"></span></p>
+                <p><strong>Platform:</strong> <span id="platformInfo"></span></p>
+                <p><strong>Language:</strong> <span id="languageInfo"></span></p>
+                <p><strong>Screen Resolution:</strong> <span id="screenInfo"></span></p>
+            </div>
+        </div>
+        
+        <div class="setting-group">
+            <h4>Performance</h4>
+            <div id="performanceMetrics">
+                <p><strong>Memory Usage:</strong> <span id="memoryUsage"></span></p>
+                <p><strong>Page Load Time:</strong> <span id="pageLoadTime"></span> ms</p>
+            </div>
+            <button onclick="capturePerformanceMetrics()">Refresh Metrics</button>
+        </div>
+        
+        <div class="setting-group">
+            <h4>Local Storage</h4>
+            <table id="localStorageTable" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="localStorageEntries">
+                </tbody>
+            </table>
+            <button onclick="refreshLocalStorageView()">Refresh View</button>
+        </div>
+    </div>
+</div>
+    <script src="omegaScript.js"></script>
+</body>
+</html>
